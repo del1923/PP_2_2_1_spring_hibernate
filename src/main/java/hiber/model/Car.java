@@ -19,7 +19,6 @@ public class Car implements Serializable {
     private int seriesCar;
 
     private Car(){
-
     }
 
     public Car(User user, String modelCar, int seriesCar) {
