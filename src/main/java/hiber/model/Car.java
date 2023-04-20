@@ -18,7 +18,7 @@ public class Car implements Serializable {
     @Column(name = "seriesCar")
     private int seriesCar;
 
-    private Car(){
+    public Car(){
     }
 
     public Car(User user, String modelCar, int seriesCar) {
