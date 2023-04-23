@@ -28,7 +28,9 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public User getUserByCar(String model, int series) {
-
+      /*
+      дописать реализацию с запросом
+       */
       return ;
    }
 }
