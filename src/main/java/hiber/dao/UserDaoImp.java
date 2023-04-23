@@ -31,6 +31,6 @@ public class UserDaoImp implements UserDao {
       /*
       дописать реализацию с запросом
        */
-      return ;
+      return null;
    }
 }
