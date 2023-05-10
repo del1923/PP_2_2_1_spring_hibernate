@@ -7,25 +7,28 @@ import javax.persistence.*;
 public class Car {
 
     @Id
+    @Column( name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(name="modelCar")
+    private int id;
+    @Column(name = "model_car")
     private String modelCar;
-
-    @Column(name = "seriesCar")
+    @Column(name = "series_car")
     private int seriesCar;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    public Car(){
+    public Car() {
     }
 
     public Car(String modelCar, int seriesCar) {
         this.modelCar = modelCar;
         this.seriesCar = seriesCar;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getModelCar() {
@@ -44,29 +47,12 @@ public class Car {
         this.seriesCar = seriesCar;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Override
     public String toString() {
         return "Car{" +
                 "id=" + id +
                 ", modelCar='" + modelCar + '\'' +
                 ", seriesCar=" + seriesCar +
-                ", user=" + user +
                 '}';
     }
 }

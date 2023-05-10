@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -27,10 +28,13 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
+   @SuppressWarnings("unchecked")
    public User getUserByCar(String model, int series) {
-      /*
-      дописать реализацию с запросом
-       */
-      return null;
+
+      String hql = "FROM User user where user.car.modelCar = :model and user.car.seriesCar = :series";
+      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql);
+      query.setParameter("model", model).setParameter("series", series);
+      return query.setMaxResults(1).getSingleResult();
+
    }
 }
