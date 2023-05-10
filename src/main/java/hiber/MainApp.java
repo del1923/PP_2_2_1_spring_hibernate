@@ -5,8 +5,6 @@ import hiber.model.Car;
 import hiber.model.User;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import javax.persistence.NoResultException;
 import java.sql.SQLException;
 
 public class MainApp {
@@ -50,12 +48,8 @@ public class MainApp {
       System.out.println();
       // выводим пользователей с искомым авто
       System.out.println("выводим пользователей с LADA, 2107");
-      try {
-         for ( User user : userService.getUserByCar( "LADA", 2107 ) ) {
-            System.out.println( user.getFirstName() + " " + user.getLastName() + " " + user.getEmail());
-         }
-      } catch ( NoResultException e ) {
-         System.out.println( "Пользователь не найден" );
+      for ( User user : userService.getUserByCar( "LADA", 2107 ) ) {
+         System.out.println( user.getFirstName() + " " + user.getLastName() + " " + user.getEmail());
       }
       context.close();
    }
