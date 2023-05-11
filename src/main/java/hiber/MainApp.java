@@ -71,9 +71,15 @@ public class MainApp {
            System.out.println(user + " " + user.getCar());
        }
       System.out.println();
-      // выводим пользователей с искомым авто
-      System.out.println("выводим пользователей с LADA, 2107");
-      for ( User user : userService.getUserByCar( "LADA", 2107 ) ) {
+      String modelCar = "LADA"; // тут указываем какое авто ищем
+      int seriesCar = 2107;    // хотя это вводится обычно с клавиатуры
+      // проверяем пустой/не пустой список
+      System.out.println("выводим пользователей с " + modelCar + " " + seriesCar );
+      if ( userService.getUserByCar( modelCar, seriesCar ).isEmpty() ) {
+         System.out.println( "Нет таких пользователей" );
+      }
+      // выводим список
+      for ( User user : userService.getUserByCar( modelCar, seriesCar ) ) {
          System.out.println( user.getFirstName() + " " + user.getLastName() + " " + user.getEmail());
       }
       context.close();

@@ -43,6 +43,7 @@ public class UserDaoImp implements UserDao {
        в public List<User> getUserByCar(...) на public User getUserByCar(...) в DAO и SERVICE;
        и return query.setMaxResults(1).getSingleResult();
        Также необходимо обработать исключения при вызове userService.getUserByCar(...)
+       При выводе списка - нужно проверять список на пустой/не пустой
        */
    }
 }
