@@ -1,3 +1,8 @@
+/*
+создаём класс Car аналогично классу User
+
+ */
+
 package hiber.model;
 
 import javax.persistence.*;
